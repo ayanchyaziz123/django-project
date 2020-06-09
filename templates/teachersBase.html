@@ -1,0 +1,329 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+
+
+    <title>{% block title  %}  {% endblock title %}</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.1.3/css/bootstrap.css">
+    <link rel="stylesheet" href="https://cdn.datatables.net/1.10.21/css/dataTables.bootstrap4.min.css">
+    <link rel="stylesheet" href="{% static 'css/bootstrap.min.css' %}">
+    <link rel="stylesheet" href="{% static 'css/publicfile.css' %} ">
+    <link rel="stylesheet" href="path/to/font-awesome/css/font-awesome.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+
+
+   <style>
+              .row-setting{
+    margin:80px 0px !important;
+
+}
+.imgsetting{
+border-radius: 40%;
+height: 90px;
+width: 90px;
+
+
+}
+   </style>
+
+</head>
+<body>
+
+ <div class="jumbotron jumbotron-fluid jmb " style="margin-bottom:0">
+
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-12 text-center">
+
+                    <h1>cse-44th</h1>
+                    <p style="margin-left: 100px;">A website for students teachers</p>
+                    <hr>
+                    <a class="navbar-brand" href="index.php">
+                        <img src="{% static 'logo.png' %}" alt="Logo" style="width:100px;">
+                    </a>
+
+
+
+                </div>
+
+
+
+
+            </div>
+
+        </div>
+    </div>
+
+
+    <nav class="navbar navbar-expand-lg " id="edit-navbar">
+
+        <div class="container">
+
+
+
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
+                aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+                <span id="navbar-toggler-icon"></span>
+                <span id="navbar-toggler-icon"></span>
+                <span id="navbar-toggler-icon"></span>
+            </button>
+
+
+
+
+            <div class="collapse navbar-collapse flex-row-reverse" id="navbarSupportedContent">
+
+
+                <ul class="navbar-nav mr-auto nav justify-content-center ml-lg-5">
+                    <li class="nav-item pl-lg-3 pr-lg-3 mm">
+                        <a class="nav-link " id="{% block hactive %}{% endblock hactive %}" href="{% url 'teacherHome' %}">Home<span class="sr-only">(current)</span></a>
+                    </li>
+                    <li class="nav-item pl-lg-3 pr-lg-3" id="{% block postactive %}{% endblock postactive %}">
+                        <a class="nav-link" href="/post">Post</a>
+                    </li>
+                    <li class="nav-item dropdown pl-lg-3 pr-lg-3 ">
+                        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button"
+                            data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                            Menu
+                        </a>
+                        <div class="dropdown-menu edit-dropdown " aria-labelledby="navbarDropdown">
+                            <a class="dropdown-item" href="#">Get Attendance</a>
+                            <a class="dropdown-item" href="#">Public</a>
+                            <a class="dropdown-item" href="#">All</a>
+
+                        </div>
+                    </li>
+
+
+
+
+                    <li class="nav-item pl-lg-3 pr-lg-3" id="{% block aboutactive %}{% endblock aboutactive %}">
+                        <a class="nav-link" href="{% url 'studentList' %}">student List</a>
+                    </li>
+                    <li class="nav-item pl-lg-3 pr-lg-3" id="{% block contactactive %}{% endblock contactactive %}">
+                        <a class="nav-link" href="/contact">Contact Us</a>
+                    </li>
+
+
+
+
+                </ul>
+
+                <form method="get" action="/search" class="form-inline my-2 my-lg-0" >
+      <input class="form-control mr-sm-2" name="S" type="search" placeholder="Search" aria-label="Search">
+      <button class="btn btn-primary my-2 my-sm-0" type="submit">Search</button>
+    </form>
+
+
+
+            </div>
+
+
+        </div>
+
+    </nav>
+
+
+{% for message in messages %}
+
+<div class="alert alert-{{ message.tags }} alert-dismissible fade show" role="alert">
+  <strong>Message : </strong> {{ message }}
+  <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+    <span aria-hidden="true">&times;</span>
+  </button>
+</div>
+ {% endfor %}
+
+ <div class="container mt-5 mb-5">
+     {% block body %}
+     {% endblock body %}
+
+
+
+
+     <!--row 2 -->
+   <h1 style="margin-top:200px; text-align:center;">Services</h1>
+<div class="row  text-center row-setting">
+    <div class="col-sm-4 col-md-4 d-block m-auto">
+        <div class="imgsetting d-block m-auto bg-warning">
+            <i class="fa fa-shopping-cart fa-3x text-white mt-4"></i>
+
+        </div>
+
+         <h2>E-commarce</h2>
+                <p>
+                    this website is good
+                </p>
+
+
+    </div>
+
+     <div class="col-sm-4">
+         <div class="imgsetting d-block m-auto bg-warning">
+            <i class="fa fa-shopping-cart fa-3x text-white mt-4"></i>
+
+        </div>
+
+         <h2>E-commarce</h2>
+                <p>
+                    this website is good
+                </p>
+
+
+    </div>
+
+     <div class="col-sm-4">
+        <div class="imgsetting d-block m-auto bg-warning">
+            <i class="fa fa-shopping-cart fa-3x text-white mt-4"></i>
+
+        </div>
+
+         <h2>E-commarce</h2>
+                <p>
+                    this website is good
+                </p>
+
+
+    </div>
+
+
+
+
+
+
+</div>
+
+
+
+
+
+
+
+ </div>
+
+
+
+
+
+
+ <!--fotter -->
+
+
+  <div class="jumbotron jumbotron-fluid jmb">
+        <div class="container">
+
+
+            <div id="footer" style="text-align: center;  color:aliceblue;">
+                <!-- starting of footer-->
+                <hr>
+                <p> Theme by | azizur rahman | &copy;2016-2017 all right reserved </p>
+
+
+                <p>
+                    <button class="btn btn-primary btn-lg" type="button" data-toggle="collapse" data-target="#contentId"
+                        aria-expanded="false" aria-controls="contentId">
+                        About Me
+                    </button>
+                </p>
+                <div class="collapse" id="contentId">
+                    Name:AZIZUR RAHMAN <br>
+                    EMAIL: aaziz9642@gmail.com
+
+                </div>
+
+
+                <a href="#">
+                    <p>This is only for study purpose</p>
+                </a>
+                <hr>
+
+            </div>
+
+
+
+
+        </div>
+    </div>
+
+
+
+
+<!--java script metho--->
+
+
+ <script src="{% static 'js/jquery.js' %}"></script>
+ <script src="{% static  'js/pooper.js' %}"></script>
+ <script src="{% static  'js/bootstrap.min.js' %}"></script>
+  <script src="https://code.jquery.com/jquery-3.5.1.js" ></script>
+ <script src="https://cdn.datatables.net/1.10.21/js/jquery.dataTables.min.js"></script>
+ <script src="https://cdn.datatables.net/1.10.21/js/dataTables.bootstrap4.min.js"></script>
+
+  <script>
+
+
+
+
+  $(document).ready(function() {
+    $('#tblData').DataTable();
+} );
+
+
+    $('.dropdown').mouseenter(function() {
+        $(this).children('.edit-dropdown').addClass('show');
+
+    });
+    $('.dropdown').mouseleave(function() {
+        $(this).children('.edit-dropdown').removeClass('show');
+
+    });
+
+
+
+    function exportTableToExcel(tableID, filename = ''){
+    var downloadLink;
+    var dataType = 'application/vnd.ms-excel';
+    var tableSelect = document.getElementById(tableID);
+    var tableHTML = tableSelect.outerHTML.replace(/ /g, '%20');
+
+    // Specify file name
+    filename = filename?filename+'.xls':'excel_data.xls';
+
+    // Create download link element
+    downloadLink = document.createElement("a");
+
+    document.body.appendChild(downloadLink);
+
+    if(navigator.msSaveOrOpenBlob){
+        var blob = new Blob(['\ufeff', tableHTML], {
+            type: dataType
+        });
+        navigator.msSaveOrOpenBlob( blob, filename);
+    }else{
+        // Create a link to the file
+        downloadLink.href = 'data:' + dataType + ', ' + tableHTML;
+
+        // Setting the file name
+        downloadLink.download = filename;
+
+        //triggering the function
+        downloadLink.click();
+    }
+}
+
+
+
+
+
+
+
+    </script>
+
+
+
+
+</body>
+</html>

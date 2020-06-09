@@ -1,0 +1,66 @@
+{% extends 'base.html' %}
+{% load static %}
+
+
+{% block title  %} home  {% endblock title %}
+{% block postactive %}active{% endblock postactive  %}
+
+
+ {% block body %}
+
+    <div class="row">
+   <div class="col-sm-8">
+
+    {% for post in Posts %}
+
+
+       {%  if not post.postUrl %}
+
+
+         <div class="card">
+  <div class="card-header">
+    {{ post.postTitle }}
+  </div>
+  <div class="card-body">
+    <h5 class="card-title">{{ post.postTimeDate }}</h5>
+      <img  src=" {{ post.get_photo_url }} " class="img-fluid img-thumbnail img-rounded"
+                        alt="Responsive image" height="300">
+    <p class="card-text">{{ post.postText |truncatewords:500 }}</p>
+    <p class="card-text">{{ post.postAuthor | truncatechars:5 }}</p>
+     <a href="{{ post.postId }}" class="btn btn-primary">View full Post</a>
+
+  </div>
+        </div>
+
+
+
+
+     {% else %}
+    <div class="card">
+  <div class="card-header">
+    {{ post.postTitle }}
+  </div>
+  <div class="card-body">
+    <h5 class="card-title">{{ post.postTimeDate }}</h5>
+      <img  src=" {{ post.get_photo_url }} " class="img-fluid img-thumbnail img-rounded"
+                        alt="Responsive image" height="300">
+    <p class="card-text">{{ post.postText |truncatewords:500 }}</p>
+    <p class="card-text">{{ post.postAuthor | truncatechars:5 }}</p>
+     <a  href="{{ post.postUrl }}">Post Url</a>
+     <a href="{{ post.postId }}" class="btn btn-primary">View full Post</a>
+
+  </div>
+        </div>
+
+
+{% endif %}
+{% endfor %}
+       </div>
+
+</div>
+
+
+
+
+
+ {% endblock body %}

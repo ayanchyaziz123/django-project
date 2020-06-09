@@ -1,0 +1,173 @@
+body{
+	
+	background-color :#F8F8FF;
+}
+.col-sm-10{
+	background-color:#ffffff;
+}
+#side_menu a{
+	color: white;
+}
+
+#side_menu .active a{
+	 background-color: #FFF !important;
+}
+
+
+.flex-column a:hover{
+	
+	 background-color: #ccc;
+	 color: black;
+     	 
+}
+.containers{
+	background-color: #F5FFFA;
+}
+.jmb{
+	
+	background-color:#2F4F4F;
+	color : white;
+	
+}
+
+#edit-navbar{
+	background-color:#2F4F4F;
+	color:white;
+}
+
+#edit-navbar #active{
+	background-color:#5F9EA0;
+	color:black;
+	padding-left:10px;
+	padding-right:10px;
+	border-radius:2px;
+}
+
+#edit-navbar .navbar-nav .nav-link{
+	color : white;
+	font-family:"Times New Roman", Times, serif;
+	font-size:14px;
+	transition:all 0.4s ease-in-out;
+	
+}
+
+
+#edit-navbar .navbar-nav .nav-link:hover{
+	background-color:#5F9EA0;
+	color:black;
+}
+@media(min-width:886px){
+#edit-navbar .navbar-nav{
+	padding-left:100px;
+}
+}
+
+@media(max-width:576px){
+.mm{
+	margin-top:30px;
+}
+}
+
+
+
+.edit-dropdown{
+	padding-top:0;
+	padding-bottom:0;
+	margin-top:0;
+	border-radius:0;
+}
+
+.edit-dropdown .dropdown-item{
+	padding:8px 1.5rem;
+	background-color:#2F4F4F; 
+	color:white;
+	transition:all 0.4s ease-in-out;
+	font-family:"Times New Roman", Times, serif;
+	font-size:14px;
+}
+.edit-dropdown .dropdown-item:hover{
+	background-color:#5F9EA0;
+	color:black;
+}
+
+#navbar-toggler-icon{
+	height:1px;
+	width:25px;
+	margin:6px 0;
+	background-color:white;
+	display:block;
+}	
+
+#edit-navbar .navbar-toggler{
+	border-color:white;
+	border-radius:0;
+}
+
+
+
+.btn-primary{
+	background-color:#5F9EA0 !important;
+	border-color:#2F4F4F !important;
+}
+.btn-primary:hover{
+	background-color:#2F4F4F;
+	color:black;
+}
+.card-titles{
+	background-color:#5F9EA0 !important;
+	color:#FFF
+}.im{
+	display:block;
+}
+
+#heading{
+	font-family:bitter,georgia,"times new roman",times,serif;
+	font-weight:bold;
+	color:#005E90;
+}
+#heading:hover{
+	color:#0090BD;
+}
+.description{
+	color:#868686;
+	fon-weight:bold;
+	margin-top:-2px;
+}
+
+.post-title{
+	
+	font-family:bitter,georgia,"times new roman",times,serif;
+	font-weight:bold;
+	color:#005E90;
+	
+}
+.post-title:hover{
+	color:#0090BD;
+}
+
+.post-time{
+	color:#868686;
+	font-weight:bold;
+}
+.post-category{
+	
+	font-family:bitter,georgia,"times new roman",times,serif;
+	font-weight:bold;
+	color:#005E90;
+}
+.post{
+	font-size: 1.1em;
+	font-family: "lucida sans Unicode","Lucida Grand",sans-serif;
+	text-align:justify;
+}
+.comment-block{
+	background-color:#F6F7F9;
+}
+
+.row-setting{
+    margin:80px 0px !important;
+}
+
+
+
+

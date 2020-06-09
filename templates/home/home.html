@@ -1,0 +1,218 @@
+{% extends 'base.html' %}
+{% load static %}
+
+
+{% block title  %} home  {% endblock title %}
+{% block hactive %}active{% endblock hactive %}
+
+
+ {% block body %}
+
+
+   <div class="container mt-5">
+    <div class="row">
+      <div class="col-sm-8" >
+
+             <!-- Card -->
+        <div class="card mb-5">
+
+          <!-- Card image -->
+          <div class="view overlay">
+
+            <a href="#!">
+              <div class="mask rgba-white-slight"></div>
+            </a>
+          </div>
+
+          <!-- Card content -->
+          <div class="card-body">
+
+            <!-- Title -->
+            <h4 class="card-title">Create your own blog</h4>
+            <!-- Text -->
+            <p class="card-text">your post will be seen by admin .if admin accept your
+            post request then it will share in  public</p>
+            <!-- Button -->
+  <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModal">
+  Create
+</button>
+
+<div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLongTitle" aria-hidden="true">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLongTitle">Log In</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+
+          <div class="form-group">
+  <label for="usr">Title:</label>
+  <input type="text" class="form-control" id="usr">
+</div>
+
+  <div class="form-group">
+  <label for="usr">Category:</label>
+  <input type="text" class="form-control" id="usr">
+</div>
+
+  <div class="form-group">
+  <label for="usr">Post:</label>
+  <input type="text" class="form-control" id="usr">
+</div>
+
+<div class="form-group">
+  <label for="pwd">Image:</label>
+  <input type="file" class="form-control" id="pwd">
+</div>
+
+
+
+      </div>
+      <div class="modal-footer">
+        <a  class="btn btn-primary"  href="/blog">Clear</a>
+        <button type="button" class="btn btn-primary">Save</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+
+          </div>
+
+        </div>
+        <!-- Card -->
+
+
+              <!-- Card -->
+
+ <div class="card mb-5">
+
+          <!-- Card image -->
+          <div class="view overlay">
+            <img class="card-img-top" src="https://mdbootstrap.com/img/Mockups/Lightbox/Thumbnail/img%20(67).jpg"
+              alt="Card image cap">
+            <a href="#!">
+              <div class="mask rgba-white-slight"></div>
+            </a>
+          </div>
+
+          <!-- Card content -->
+          <div class="card-body">
+
+            <!-- Title -->
+            <h4 class="card-title">Card title</h4>
+            <!-- Text -->
+            <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's
+              content.</p>
+            <!-- Button -->
+            <a href="#" class="btn btn-primary">See More</a>
+
+          </div>
+        </div>
+
+      </div>
+
+        <div class="col-sm-3 ml-lg-5" >
+
+          <div class="card text-center ">
+                    <h6>About Me</h6>
+<div class="card card-cascade">
+
+  <!-- Card image -->
+  <div class="view view-cascade overlay">
+    <img class="card-img-top rounded-circle pl-5 pr-5 pt-3" src="{% static 'aya.jpeg' %}" alt="Card image cap">
+    <a>
+      <div class="mask rgba-white-slight"></div>
+    </a>
+  </div>
+
+  <!-- Card content -->
+  <div class="card-body card-body-cascade text-center">
+
+    <!-- Title -->
+    <h4 class="card-title"><strong>Azizur Rahman Chowdhury Ayan</strong></h4>
+    <!-- Subtitle -->
+    <h6 class="font-weight-bold indigo-text py-2">Web developer</h6>
+    <!-- Text -->
+    <p class="card-text">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Voluptatibus, ex, recusandae.
+      Facere modi sunt, quod quibusdam.
+    </p>
+
+    <!-- Facebook -->
+    <a type="button" class="btn-floating btn-small btn-fb"><i class="fab fa-facebook-f"></i></a>
+    <!-- Twitter -->
+    <a type="button" class="btn-floating btn-small btn-tw"><i class="fab fa-twitter"></i></a>
+    <!-- Google + -->
+    <a type="button" class="btn-floating btn-small btn-dribbble"><i class="fab fa-dribbble"></i></a>
+
+  </div>
+
+</div>
+                </div>
+
+
+
+
+
+             <div class="card text-center  mt-5">
+                 <div class="card-title">
+<h6>Category</h6>
+
+                 </div>
+
+
+
+
+
+  <!-- Card content -->
+  <div class="card-body  text-center">
+  {% for post in Posts %}
+    <!-- Title -->
+
+
+        <a href="#">{{ post.category }}</a> <br>
+
+   {% endfor %}
+</div>
+
+                </div>
+
+
+              <div class="card text-center  mt-5">
+                 <div class="card-title">
+<h6>Recent Post</h6>
+
+                 </div>
+
+
+
+
+
+  <!-- Card content -->
+  <div class="card-body  text-center ">
+  {% for post in Posts %}
+    <!-- Title -->
+
+
+        <a href="#">{{ post.category }}</a> <br>
+
+   {% endfor %}
+</div>
+
+                </div>
+
+
+
+        </div>
+
+   </div>
+    </div>
+
+
+
+
+ {% endblock body %}
