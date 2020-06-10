@@ -90,12 +90,11 @@ width: 90px;
                     <li class="nav-item dropdown pl-lg-3 pr-lg-3 ">
                         <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button"
                             data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                            Menu
+                            Post
                         </a>
                         <div class="dropdown-menu edit-dropdown " aria-labelledby="navbarDropdown">
-                            <a class="dropdown-item" href="#">Admin</a>
-                            <a class="dropdown-item" href="#">Public</a>
-                            <a class="dropdown-item" href="#">All</a>
+                            <a class="dropdown-item" href="#">Teacher</a>
+                            <a class="dropdown-item" href="#">CR</a>
 
                         </div>
                     </li>
@@ -115,8 +114,8 @@ width: 90px;
 
                 </ul>
 
-                <form method="get" action="/search" class="form-inline my-2 my-lg-0" >
-      <input class="form-control mr-sm-2" name="S" type="search" placeholder="Search" aria-label="Search">
+                <form method="get" action="{% url 'search' %}" class="form-inline my-2 my-lg-0"  >
+      <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search" name="search">
       <button class="btn btn-primary my-2 my-sm-0" type="submit">Search</button>
     </form>
 
@@ -140,6 +139,9 @@ width: 90px;
 
 
       <!--row 2 -->
+     <div style="margin-top:200px">
+
+     </div>
    <h1 style="text-align:center; font-weight:bold;">Services</h1>
 <div class="row  text-center row-setting">
     <div class="col-sm-4 col-md-4 d-block m-auto">
@@ -148,7 +150,7 @@ width: 90px;
 
         </div>
 
-         <h2>Student Information</h2>
+         <h2>Information</h2>
                 <p>
                     this website is good
                 </p>
@@ -162,7 +164,7 @@ width: 90px;
 
         </div>
 
-         <h2>E-commarce</h2>
+         <h2>Learning</h2>
                 <p>
                     this website is good
                 </p>

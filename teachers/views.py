@@ -17,6 +17,8 @@ def teacherHome(request):
     form = PostForm()
     return render(request, 'teachers/teachersHome.html', {'title': 'add-newpost', 'form': form})
 
+def log(request):
+    return render(request, 'teachers/logIn.html')
 
 def studentList(request):
     StudentList = Student.objects.all()

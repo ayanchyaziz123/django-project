@@ -1,5 +1,6 @@
 from django.db import models
 from django import forms
+from PIL import Image
 
 
 # Create your models here.
@@ -19,19 +20,19 @@ class Post(models.Model):
     postTimeDate = models.DateTimeField(auto_now_add=True, auto_now=False, blank=True)
     postText = models.TextField()
     postUrl = models.TextField(blank=True)
-    postImage = models.ImageField(null=True, blank=True)
+    postImage = models.ImageField(blank=True, null=True)
 
     def get_photo_url(self):
         if self.postImage and hasattr(self.postImage, 'url'):
             return self.postImage.url
         else:
-            return "/static/aya.jpeg"
+            return "/static/no.png"
 
-    def __str__(self):
-        if len(self.postTitle) > 50:
-            return self.postTitle[:50] + "..."
-        else:
-            return self.postTitle
+
+
+    #image resizing
+
+
 
 
 class PostForm(forms.ModelForm):
