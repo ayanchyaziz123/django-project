@@ -39,6 +39,7 @@ INSTALLED_APPS = [
     'home.apps.HomeConfig',
     'teachers.apps.TeachersConfig',
     'post.apps.PostConfig',
+    'user.apps.UserConfig',
 ]
 
 MIDDLEWARE = [
@@ -70,6 +71,7 @@ TEMPLATES = [
     },
 ]
 
+AUTH_USER_MODEL = 'user.Account'
 WSGI_APPLICATION = 'cse44th.wsgi.application'
 
 # Database

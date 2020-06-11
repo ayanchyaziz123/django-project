@@ -20,9 +20,6 @@
     {% for post in Posts %}
 
 
-       {%  if not post.postUrl %}
-
-
 
 
 
@@ -47,7 +44,7 @@
 
                             </div>
                             <div class="card-text">
-                                <p class="post">{{ post.postText |truncatewords:40 }}</p>
+                                <p class="post">{{ post.postText |truncatewords:40 | safe | linebreaks}}</p>
 
                             </div>
 
@@ -63,49 +60,6 @@
        </div>
 
 
-
-
-     {% else %}
-
-
-        <div class="card pt-4 pl-4 pb-4 pr-4 ">
-                   {% if post.postImage %}
-                    <img src="{{ post.postImage.url }} " class="img-fluid img-thumbnail img-rounded"
-                        alt="Responsive image">
-                      {% endif %}
-                    <div class="card-body">
-                        <div class="card-title">
-
-                            <h5 class="card-title post-title"> {{ post.postTitle }} </h5>
-
-                            <h6 class="post-category">Category : {{post.category}}
-                                published on</h6>
-                            <p class="post-time">
-                                {{ post.postTimeDate }}
-                            </p>
-
-                             <div class="post-time mb-5">
-                                <p class="post">Author : {{ post.postAuthor |truncatewords:2 }}</p>
-
-                            </div>
-                            <div class="card-text">
-                                <p class="post">{{ post.postText |truncatewords:40 }}</p>
-
-                            </div>
-
-
-
-                        </div>
-                             <a href="{{ post.postId }}"><span class="btn btn-primary">Read More &rsaquo;</span></a>
-
-
-                    </div>
-                </div>
-<div style="margin-top:60px;">
-
-       </div>
-
-{% endif %}
 {% endfor %}
 
 
@@ -186,18 +140,21 @@
     <!-- Title -->
     <h4 class="card-title"><strong>Azizur Rahman Chowdhury Ayan</strong></h4>
     <!-- Subtitle -->
-    <h6 class="font-weight-bold indigo-text py-2">Web developer</h6>
+    <h6 class="font-weight-bold indigo-text py-2">Student of metrpolitan University</h6>
     <!-- Text -->
-    <p class="card-text">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Voluptatibus, ex, recusandae.
-      Facere modi sunt, quod quibusdam.
+    <p class="card-text">Right now, I am doing cse from MU
     </p>
 
     <!-- Facebook -->
-    <a type="button" class="btn-floating btn-small btn-fb"><i class="fab fa-facebook-f"></i></a>
+    <a href="https://www.linkedin.com/in/azizur-rahman-720636165"  class="btn-floating btn-small btn-fb"><i class="fa fa-linkedin-square
+
+"></i></a>
     <!-- Twitter -->
-    <a type="button" class="btn-floating btn-small btn-tw"><i class="fab fa-twitter"></i></a>
+    <a href="https://www.facebook.com/imayanchy/" class="btn-floating btn-small btn-tw" style="padding:10px;"><i class="fa fa-facebook-square
+
+"></i></a>
     <!-- Google + -->
-    <a type="button" class="btn-floating btn-small btn-dribbble"><i class="fab fa-dribbble"></i></a>
+    <a href="mailto:aaziz9642@gmail.com"  class="btn-floating btn-small btn-dribbble"><i class="fa fa-envelope-o"></i></a>
 
   </div>
 

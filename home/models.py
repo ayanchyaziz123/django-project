@@ -33,3 +33,20 @@ class Attendance(models.Model):
     courseName = models.ForeignKey(Course, on_delete=models.CASCADE)
     attendanceDate = models.DateField()
     studentId = models.ForeignKey(Student, on_delete=models.CASCADE)
+
+
+from django.db import models
+
+
+# Create your models here.
+
+
+class Contact(models.Model):
+    siNo = models.AutoField(primary_key=True)
+    Name = models.CharField(max_length=250)
+    Email = models.CharField(max_length=100)
+    Content = models.TextField()
+    DateTime = models.DateTimeField(auto_now_add=True, blank=True)
+
+    def __str__(self):
+        return 'Message From: ' + self.Name + ' Email address : ' +self.Email

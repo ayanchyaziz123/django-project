@@ -84,9 +84,7 @@ width: 90px;
                     <li class="nav-item pl-lg-3 pr-lg-3 mm">
                         <a class="nav-link " id="{% block hactive %}{% endblock hactive %}" href="/">Home<span class="sr-only">(current)</span></a>
                     </li>
-                    <li class="nav-item pl-lg-3 pr-lg-3" id="{% block postactive %}{% endblock postactive %}">
-                        <a class="nav-link" href="/post">Post</a>
-                    </li>
+
                     <li class="nav-item dropdown pl-lg-3 pr-lg-3 ">
                         <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button"
                             data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
@@ -108,8 +106,37 @@ width: 90px;
                     <li class="nav-item pl-lg-3 pr-lg-3" id="{% block contactactive %}{% endblock contactactive %}">
                         <a class="nav-link" href="/contact">Contact Us</a>
                     </li>
+<li>
+
+       {% if user.is_authenticated %}
 
 
+                        <li class="nav-item dropdown  ">
+                        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button"
+                            data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                            welcome {{request.user}}
+                        </a>
+                        <div class="dropdown-menu edit-dropdown " aria-labelledby="navbarDropdown">
+
+                            <a class="dropdown-item" href="#">View Profile</a>
+                               <a class="dropdown-item" href="{% url 'userLogOut' %}">Logout</a>
+
+                        </div>
+                    </li>
+
+
+
+                    {% else %}
+
+
+
+                    <!-- Button to Open the Modal -->
+<button type="button" class="btn btn-primary" data-toggle="modal" data-target="#myModal" style="float:left;">
+  Log In
+</button>
+                    {% endif %}
+
+</li>
 
 
                 </ul>
@@ -130,6 +157,55 @@ width: 90px;
 
 
 
+ <!-- The Modal -->
+<div class="modal" id="myModal">
+  <div class="modal-dialog">
+    <div class="modal-content">
+
+      <!-- Modal Header -->
+      <div class="modal-header">
+        <h4 class="modal-title"LogIn here</h4>
+        <button type="button" class="close" data-dismiss="modal">&times;</button>
+      </div>
+
+      <!-- Modal body -->
+      <div class="modal-body">
+
+
+        <form action="{% url 'userLogIn' %}" method="post">
+
+          <div class="form-group">
+  <label for="usrN">email:</label>
+  <input type="email" class="form-control" name="email" id="usrN">
+</div>
+<div class="form-group">
+  <label for="pwd">Password:</label>
+  <input type="password" class="form-control" name="pass" id="pwd">
+</div>
+
+
+
+      </div>
+      <div class="modal-footer">
+        <a  class="btn btn-primary"  href="{% url 'userSignUp' %}">Sign Up</a>
+          {% csrf_token %}
+        <button type="submit" class="btn btn-primary">Log In</button>
+      </div>
+
+        </form>
+    </div>
+  </div>
+</div>
+
+{% for message in messages %}
+
+<div class="alert alert-{{ message.tags }} alert-dismissible fade show" role="alert">
+  <strong>Message : </strong> {{ message }}
+  <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+    <span aria-hidden="true">&times;</span>
+  </button>
+</div>
+ {% endfor %}
 
  <div class="container mt-5 mb-5">
      {% block body %}

@@ -1,0 +1,46 @@
+{% extends 'base.html' %}
+{% load static %}
+
+
+{% block title  %} home  {% endblock title %}
+
+
+
+ {% block body %}
+
+    <div class="row">
+        <div class="col-sm-8">
+
+
+            <h2 style="margin-bottom:18px">Register</h2>
+<form method="post">{% csrf_token %}
+	{% for field in registration_form %}
+		<p>
+			<label>{{field.label_tag}}</label><br>
+
+			{{field}}
+
+			{% if field.help_text %}
+				<small style="color: grey;">{{field.help_text}}</small>
+			{% endif %}
+
+			{% for error in field.errors %}
+				<p style="color: red;">{{error}}</p>
+			{% endfor %}
+		</p>
+	{% endfor %}
+	<button style="margin-top:10px" type="submit" class="btn btn-primary">Register</button>
+
+</form>
+
+
+
+
+
+        </div>
+
+    </div>
+
+
+
+ {% endblock body %}>
