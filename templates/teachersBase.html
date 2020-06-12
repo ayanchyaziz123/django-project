@@ -109,6 +109,29 @@ width: 90px;
                         <a class="nav-link" href="/contact">Contact Us</a>
                     </li>
 
+                    <li>
+
+       {% if user.is_authenticated %}
+
+
+                        <li class="nav-item dropdown  ">
+                        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button"
+                            data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                            welcome {{request.user.username}}
+                        </a>
+                        <div class="dropdown-menu edit-dropdown " aria-labelledby="navbarDropdown">
+
+                            <a class="dropdown-item" href="#">View Profile</a>
+                               <a class="dropdown-item" href="{% url 'userLogOut' %}">Logout</a>
+
+                        </div>
+                    </li>
+
+
+                    {% endif %}
+
+</li>
+
 
 
 

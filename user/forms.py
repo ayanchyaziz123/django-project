@@ -32,3 +32,5 @@ class RegistrationForm(UserCreationForm):
     class Meta:
         model = Account
         fields = ("email", "username", "password1", "password2")
+
+

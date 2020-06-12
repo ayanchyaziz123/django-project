@@ -9,22 +9,39 @@ import xlwt
 
 from django.http import HttpResponse
 from django.contrib.auth.models import User
+from .forms import  AccountAuthenticationForm
+from user.models import Account
+from django.contrib.auth import login, authenticate, logout
 
 
 # Create your views here.
 
 def teacherHome(request):
-    form = PostForm()
-    return render(request, 'teachers/teachersHome.html', {'title': 'add-newpost', 'form': form})
+    context = {}
+    if request.user.is_authenticated:
+       form = PostForm()
+       return render(request, 'teachers/teachersHome.html', {'title': 'add-newpost', 'form': form})
+
+    else:
+        form = AccountAuthenticationForm()
+    context['login_form'] = form
+    return render(request, 'teachers/logIn.html', context)
+
 
 def log(request):
     return render(request, 'teachers/logIn.html')
 
 def studentList(request):
-    StudentList = Student.objects.all()
-    context = {'StudentList': StudentList}
-    return render(request, 'teachers/studentList.html', context)
+    context = {}
+    if request.user.is_authenticated:
+        StudentList = Student.objects.all()
+        context = {'StudentList': StudentList}
+        return render(request, 'teachers/studentList.html', context)
 
+    else:
+        form = AccountAuthenticationForm()
+    context['login_form'] = form
+    return render(request, 'teachers/logIn.html', context)
 
 def teachersLogIn(request):
     return render(request, 'teachers/studentList.html')
@@ -76,3 +93,27 @@ def export_users_xls(request):
 
 
 
+def login_view(request):
+
+     context = {}
+
+     user = request.user
+     if user.is_authenticated and user.is_admin==True:
+        return redirect("home")
+
+     if request.POST:
+        form = AccountAuthenticationForm(request.POST)
+        if form.is_valid():
+            email = request.POST['email']
+            password = request.POST['password']
+            user = authenticate(email=email, password=password)
+
+            if user and user.is_admin==True:
+                login(request, user)
+                return redirect("teacherHome")
+
+     else:
+        form = AccountAuthenticationForm()
+
+     context['login_form'] = form
+     return render(request, 'teachers/logIn.html', context)
