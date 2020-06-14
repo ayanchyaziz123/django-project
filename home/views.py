@@ -64,3 +64,7 @@ def contact(request):
             contact.save()
             messages.success(request, "your comment added successfully")
     return render(request, 'home/contact.html',context)
+
+
+def aboutMe(request):
+    return render(request, 'home/aboutMe.html')

@@ -7,5 +7,6 @@ urlpatterns = [
     path('<str:slug>', views.readMore, name='readMore'),
      path('search/', views.search, name='search'),
      path('contact/', views.contact, name='contact'),
+    path('aboutMe/', views.aboutMe, name='aboutMe'),
 
 ]

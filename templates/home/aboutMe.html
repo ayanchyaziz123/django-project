@@ -1,0 +1,160 @@
+{% extends 'base.html' %}
+{% load static %}
+
+
+
+{% block title  %} home  {% endblock title %}
+{% block aboutactive %}active{% endblock aboutactive %}
+
+ {% block body %}
+
+
+
+<div class="row ml-1 mb-1">
+    <h2 class="mb-3">About Me</h2>
+
+</div>
+<div class="row">
+
+ <div class="col-sm-8 mb-5">
+
+     <div class="card pl-5  pr-5  pt-5 pb-5">
+
+
+         <h4>Name : Azizur Rahman</h4>
+         <h4>Email : aaziz9642@gmail.com</h4>
+         <h4>Mobile : 01759773446</h4>
+
+
+
+
+
+     </div>
+
+ </div>
+
+
+
+
+       <div class="col-sm-3 ml-lg-5" >
+
+            <!--about me-->
+
+          <div class="card text-center ">
+                    <h6>About Me</h6>
+<div class="card card-cascade">
+
+  <!-- Card image -->
+  <div class="view view-cascade overlay">
+    <img class="card-img-top rounded-circle pl-5 pr-5 pt-3" src="{% static 'aya.jpeg' %}" alt="Card image cap">
+    <a>
+      <div class="mask rgba-white-slight"></div>
+    </a>
+  </div>
+
+  <!-- Card content -->
+  <div class="card-body card-body-cascade text-center">
+
+    <!-- Title -->
+    <h4 class="card-title"><strong>Azizur Rahman Chowdhury Ayan</strong></h4>
+    <!-- Subtitle -->
+    <h6 class="font-weight-bold indigo-text py-2">Student of metrpolitan University</h6>
+    <!-- Text -->
+    <p class="card-text">Right now, I am doing cse from MU
+    </p>
+
+    <!-- Facebook -->
+    <a href="https://www.linkedin.com/in/azizur-rahman-720636165"  class="btn-floating btn-small btn-fb"><i class="fa fa-linkedin-square
+
+"></i></a>
+    <!-- Twitter -->
+    <a href="https://www.facebook.com/imayanchy/" class="btn-floating btn-small btn-tw" style="padding:10px;"><i class="fa fa-facebook-square
+
+"></i></a>
+    <!-- Google + -->
+    <a href="mailto:aaziz9642@gmail.com"  class="btn-floating btn-small btn-dribbble"><i class="fa fa-envelope-o"></i></a>
+
+  </div>
+
+</div>
+              <!--ending of about me-->
+                </div>
+
+
+
+
+                 <div class="card mt-5">
+                    <div class="card-header pl-2 pt-2 card-titles">
+                        <h6>Category</h6>
+                    </div>
+                    <!-- to add category-->
+                    <div class="card-body">
+                          {% for post in Categories %}
+
+                        <a href="#">
+                            <span id="heading"> {{ post.category }} </span>
+                        </a><br>
+                           {% endfor %}
+
+                    </div>
+                </div>
+
+
+
+
+
+
+
+
+
+
+  <!--recent post-->
+
+
+ <div class="card mt-5">
+                    <div class="card-header pl-2 pt-2 card-titles">
+                        <h6>Recent Posts</h6>
+                    </div>
+                    <div class="card-body">
+
+                        <div class="mt-3">
+                             {% for post in RecentPost%}
+
+                            <img style="float:left;" class="d-inline-block" src="{{ post.get_photo_url }}" height=80;
+                                width=80; alt="abc">
+
+
+                            <a href="{{ post.postId }}">
+                                <p  style="margin-left:90px;" id="heading">
+                                    {{ post.postTitle |truncatewords:2 }}
+                                </p>
+                            </a>
+
+
+                            <p style="margin-left:100px; margin-top:-10px;" class="description">{{ post.postTimeDate }}</p>
+
+                            <br>
+                             {% endfor %}
+                        </div>
+
+
+
+                    </div>
+
+                </div>
+
+
+
+
+
+
+        </div>
+
+
+
+</div>
+
+
+
+
+{% endblock body %}
