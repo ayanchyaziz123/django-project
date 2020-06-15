@@ -4,7 +4,7 @@ from django.contrib.auth.forms import UserCreationForm
 from .models import Contact
 
 
-class Contact(UserCreationForm):
+class Contact(forms.ModelForm):
     Email = forms.EmailField(max_length=60, widget=forms.TextInput(
         attrs = {
             'class': 'form-control',
@@ -14,7 +14,7 @@ class Contact(UserCreationForm):
     Name = forms.CharField(widget=forms.TextInput(
         attrs={
             'class': 'form-control',
-            'placeholder': 'user name'
+            'placeholder': 'name'
         }
     ))
     Content = forms.CharField( widget=forms.TextInput(

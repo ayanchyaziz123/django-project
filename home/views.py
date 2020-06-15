@@ -5,6 +5,7 @@ from .models import Contact
 from django.core.paginator import Paginator
 from django.db.models import Q
 from django.contrib import messages
+from .forms import Contact
 
 
 # Create your views here.
@@ -68,3 +69,18 @@ def contact(request):
 
 def aboutMe(request):
     return render(request, 'home/aboutMe.html')
+
+def contactUs(request):
+    context = {}
+    if request.POST:
+        form = Contact(request.POST)
+        if form.is_valid():
+            form.save()
+            return redirect('home')
+        else:
+            context['Contact'] = form
+    else:  # GET request
+        form = Contact()
+        context = {'form': form}
+    return render(request, 'home/contact.html', context)
+
