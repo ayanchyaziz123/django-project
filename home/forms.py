@@ -5,7 +5,7 @@ from .models import Contact
 
 
 class Contact(forms.ModelForm):
-    Email = forms.EmailField(max_length=60, widget=forms.TextInput(
+    Email = forms.EmailField(widget=forms.TextInput(
         attrs = {
             'class': 'form-control',
             'placeholder' : 'email'

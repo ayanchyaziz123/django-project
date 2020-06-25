@@ -39,14 +39,14 @@ body{
 
 #edit-navbar #active{
 	background-color:#5F9EA0;
-	color:black;
+	color:white;
 	padding-left:10px;
 	padding-right:10px;
 	border-radius:2px;
 }
 
 #edit-navbar .navbar-nav .nav-link{
-	color : white;
+	color : #A9A9A9;
 	font-family:"Times New Roman", Times, serif;
 	font-size:14px;
 	transition:all 0.4s ease-in-out;
