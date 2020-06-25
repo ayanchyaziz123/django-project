@@ -21,26 +21,20 @@
      <div class="card pl-5  pr-5  pt-5 pb-5">
 
 
-           <form action="{% url 'addPost' %}" method="post">
+           <form action="{% url 'contact' %}" method="post">
                 {% csrf_token %}
    {%for f in form %}
 
-<div class="form-group">
+
   <label>{{ f.label_tag }}:</label>
     <p>{{f}}</p>
-</div>
 
 
 
                     {% endfor %}
 
-
-
-
-      <!-- Modal footer -->
-      <div class="modal-footer">
         <button type="submit" class="btn btn-primary">Submit</button>
-      </div>
+
 </form>
 
 

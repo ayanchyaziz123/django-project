@@ -17,7 +17,7 @@ class Contact(forms.ModelForm):
             'placeholder': 'name'
         }
     ))
-    Content = forms.CharField( widget=forms.TextInput(
+    TellUs = forms.CharField( widget=forms.TextInput(
         attrs={
             'class': 'form-control',
         }
@@ -27,6 +27,6 @@ class Contact(forms.ModelForm):
 
     class Meta:
         model = Contact
-        fields = ("Email", "Name", "Content")
+        fields = ("Email", "Name", "TellUs")
 
 

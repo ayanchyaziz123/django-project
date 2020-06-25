@@ -45,7 +45,7 @@ class Contact(models.Model):
     siNo = models.AutoField(primary_key=True)
     Name = models.CharField(max_length=250)
     Email = models.CharField(max_length=100)
-    Content = models.TextField()
+    TellUs = models.TextField()
     DateTime = models.DateTimeField(auto_now_add=True, blank=True)
 
     def __str__(self):

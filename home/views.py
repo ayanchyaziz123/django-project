@@ -14,12 +14,12 @@ from .forms import Contact
 def home(request):
 
     Posts = Post.objects.all().order_by('-postTimeDate')
-    paginator = Paginator(Posts, 5)
+    paginator = Paginator(Posts, 4)
     page = request.GET.get('page')
 
     #?page = 2
 
-    Recent = Post.objects.all().order_by('-postTimeDate')[0:4]
+    Recent = Post.objects.all().order_by('-postTimeDate')[0:3]
 
     Posts = paginator.get_page(page)
 
@@ -32,10 +32,10 @@ def home(request):
 def readMore(request, slug):
     # return HttpResponse(f'this is blogPost : {slug}')
 
-    Recent = Post.objects.all().order_by('-postTimeDate')[0:4]
+    Recent = Post.objects.all().order_by('-postTimeDate')[0:3]
     post = Post.objects.filter(postId=slug).first()
     context = {'post': post,
-             'Categories': Category.objects.all()[0:4],
+             'Categories': Category.objects.all()[0:3],
              'RecentPost': Recent}
 
     return render(request, 'home/readMore.html', context)
@@ -76,11 +76,18 @@ def contactUs(request):
         form = Contact(request.POST)
         if form.is_valid():
             form.save()
-            return redirect('home')
+            messages.success(request, "your comment added successfully")
+            context = {'form': form, 'RecentPost': Post.objects.all()[0:3],
+                       'Categories': Category.objects.all()[0:4]}
+            return render(request, 'home/contact.html', context)
         else:
-            context['Contact'] = form
+            messages.error(request, "Please fill the form correctly")
+            context = {'form': form, 'RecentPost': Post.objects.all()[0:3],
+                       'Categories': Category.objects.all()[0:4]}
+            return render(request, 'home/contact.html', context)
     else:  # GET request
         form = Contact()
-        context = {'form': form}
+        context = {'form': form, 'RecentPost': Post.objects.all()[0:3],
+            'Categories': Category.objects.all()[0:4]}
     return render(request, 'home/contact.html', context)
 
